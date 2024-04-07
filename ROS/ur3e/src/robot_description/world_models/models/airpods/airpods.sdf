@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<sdf version='1.6'>
+  <model name='airpods'>
+    <link name='airpods'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0</iyy>
+          <iyz>0</iyz>
+          <izz>0</izz>
+        </inertia>
+      </inertial>
+      <collision name='airpods_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+             <box>
+              <size>0.04 0.04 0.04</size>
+            </box>
+          <!--mesh>
+            <scale>1 1 1</scale>
+            <uri>model://airpods/meshes/airpods.STL</uri>
+          </mesh-->
+        </geometry>
+        <surface>
+	    <friction>
+	      <ode>
+		<mu>0.5</mu>
+		<mu2>0.5</mu2>
+	      </ode>
+	    </friction>
+	    <contact>
+	      <ode>
+		<kp>1000000.0</kp>
+		<kd>1.0</kd>
+		<max_vel>1.0</max_vel>
+		<min_depth>0.0025</min_depth>
+	      </ode>
+	    </contact>
+	  </surface>
+      </collision>
+      <velocity_decay>
+      <linear>0.000000</linear>
+      <angular>0.000000</angular>
+      </velocity_decay>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
+      <gravity>1</gravity>  
+      <visual name='airpods_visual'>
+      <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/GreyTransparent</name>
+          </script>
+        </material>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://airpods/meshes/airpods.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

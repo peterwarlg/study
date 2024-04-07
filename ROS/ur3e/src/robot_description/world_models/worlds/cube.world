@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>20</iters>
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+    </physics>
+    <light type="directional" name="light1">
+      <cast_shadows>true</cast_shadows>
+      <pose>2 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0.2 0.0 -1.0</direction>
+    </light>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Red cube -->
+    <include>
+      <uri>model://red_cube</uri>
+      <!--pose>0.5 0.4 1.0 0 0 0</pose-->
+      <pose>0.5 0.9 0.9 0 0 0</pose>
+    </include>
+
+    <!-- Yellow cube -->
+    <include>
+      <uri>model://yellow_cube</uri>
+      <pose>0.6 0.9 0.9 0 0 0</pose>
+    </include>
+
+    <!-- Blue cube -->
+    <include>
+      <uri>model://blue_cube</uri>
+      <pose>0.7 0.9 0.9 0 0 0</pose>
+        <!--z  y   x-->
+    </include>
+    
+    <!-- Green cube -->
+    <include>
+      <uri>model://green_cube</uri>
+      <pose>0.7 0.8 0.9 0 0 0</pose>
+        <!--z  y   x-->
+    </include>
+    
+    <!-- Black cube -->
+    <include>
+      <uri>model://black_cube</uri>
+      <pose>0.6 0.8 0.9 0 0 0</pose>
+    </include>
+
+    <!-- Cube with ArUco markers on the sides -->
+    <include>
+      <uri>model://aruco_cube</uri>
+      <pose>0.5 0.8 0.9 0 0 0</pose>
+    </include>
+
+
+  </world>
+</sdf>

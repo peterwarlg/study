@@ -1,0 +1,8 @@
+prefix=/home/wangzitu/ur3e/install
+
+Name: p_robot_learning_demo
+Description: Description of p_robot_learning_demo
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,60 @@
+<sdf version='1.6'>
+  <model name='mouse'>
+    <link name='mouse'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-0.098 -0 0 0 -0 0</pose>
+        <mass>0.12374</mass>
+        <inertia>
+          <ixx>1.2934e-07</ixx>
+          <ixy>-4.1445e-23</ixy>
+          <ixz>2.1033e-22</ixz>
+          <iyy>2.5309e-07</iyy>
+          <iyz>-2.10773e-23</iyz>
+          <izz>1.2934e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='Mouse_collision'>
+      	<surface>
+	    <friction>
+	      	<ode>
+				<mu>0.5</mu>
+				<mu2>0.5</mu2>
+	      	</ode>
+	    </friction>
+	    <contact>
+	      	<ode>
+			<kp>1000000.0</kp>
+			<kd>1.0</kd>
+			<max_vel>1.0</max_vel>
+			<min_depth>0.0025</min_depth>
+	      	</ode>
+	    </contact>
+	  </surface>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Mouse/meshes/mouse.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <velocity_decay>
+            <linear>0.000000</linear>
+            <angular>0.000000</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity> 
+      <visual name='Mouse_visual'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://Mouse/meshes/mouse.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

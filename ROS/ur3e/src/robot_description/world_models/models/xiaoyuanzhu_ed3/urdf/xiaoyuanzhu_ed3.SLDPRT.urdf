@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="xiaoyuanzhu_ed3.SLDPRT">
+  <link
+    name="xiaoyuanzhu_ed3">
+    <inertial>
+      <origin
+        xyz="0 2.06268794227797E-18 0.025"
+        rpy="0 0 0" />
+      <mass
+        value="0.0047124" />
+      <inertia
+        ixx="1.0996E-06"
+        ixy="1.39396941255601E-55"
+        ixz="-2.2766E-39"
+        iyy="1.0996E-06"
+        iyz="-5.29017698787729E-23"
+        izz="2.3562E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xiaoyuanzhu_ed3/meshes/xiaoyuanzhu_ed3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+        <texture
+          filename="package://xiaoyuanzhu_ed3/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xiaoyuanzhu_ed3/meshes/xiaoyuanzhu_ed3.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

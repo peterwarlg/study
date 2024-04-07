@@ -1,0 +1,8 @@
+prefix=/home/robot227/catkin_ws/src/robotiq_85/robotiq_85_simulation/roboticsgroup_gazebo_plugins/devel
+
+Name: roboticsgroup_gazebo_plugins
+Description: Description of roboticsgroup_gazebo_plugins
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/robot227/catkin_ws/src/robotiq_85/robotiq_85_simulation/roboticsgroup_gazebo_plugins/devel/lib 
+Requires: roscpp gazebo_ros control_toolbox

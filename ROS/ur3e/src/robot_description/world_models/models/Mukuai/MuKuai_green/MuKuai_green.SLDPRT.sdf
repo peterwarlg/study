@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<sdf version='1.6'>
+  <model name='MuKuai_green.SLDPRT'>
+    <link name='MuKuai_green'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.015 0.015 0.015 0 -0 0</pose>
+        <mass>0.0081</mass>
+        <inertia>
+          <ixx>1.215e-06</ixx>
+          <ixy>3.1764e-23</ixy>
+          <ixz>-1.90868e-39</ixz>
+          <iyy>1.215e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.215e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='MuKuai_green_collision'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://MuKuai_green/meshes/MuKuai_green.STL</uri>
+          </mesh>
+        </geometry>
+	  <surface>
+	    <friction>
+	      <ode>
+		<mu>0.5</mu>
+		<mu2>0.5</mu2>
+	      </ode>
+	    </friction>
+	    <contact>
+	      <ode>
+		<kp>1000000.0</kp>
+		<kd>1.0</kd>
+		<max_vel>1.0</max_vel>
+		<min_depth>0.0025</min_depth>
+	      </ode>
+	    </contact>
+	  </surface>
+      </collision>
+      <visual name='MuKuai_green_visual'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://MuKuai_green/meshes/MuKuai_green.STL</uri>
+          </mesh>
+        </geometry>
+	<material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Green</name>
+          </script>
+        </material>
+      </visual>
+        <velocity_decay>
+            <linear>0.000000</linear>
+            <angular>0.000000</angular>
+        </velocity_decay>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>  
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robot227/catkin_ws/src/robotiq_85/robotiq_85_simulation/roboticsgroup_gazebo_plugins/devel/setup.sh

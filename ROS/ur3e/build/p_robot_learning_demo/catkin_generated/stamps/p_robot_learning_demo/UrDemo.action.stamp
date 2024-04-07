@@ -1,0 +1,15 @@
+# Define the goal
+uint32 action_id  # Specify which dishwasher we want to use
+uint32 mode_id
+float64[] urpos
+float64[] gripper_val
+---
+# Define the result
+uint32 action_done
+float64[] rurpos
+float64[] rf1
+---
+# Define a feedback message
+float32 percent_complete
+float64[] urposf
+float64[] f1

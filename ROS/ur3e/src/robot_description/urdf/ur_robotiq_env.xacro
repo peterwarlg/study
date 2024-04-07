@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur_env" >
+    <xacro:arg name="load_grasp_fix" default="true"/>
+    <xacro:property name="pi" value="3.1415926535897931"/>
+
+    <!-- common stuff -->
+    <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
+    
+    <!-- desk -->
+    <xacro:include filename="$(find robot_description)/urdf/desk.urdf" />
+    
+    <!-- kinect -->
+    <xacro:include filename="$(find robot_description)/urdf/kinect/result_model.urdf" />
+
+    <!-- ur5 -->
+    <xacro:include filename="$(find ur_e_description)/urdf/ur3e.urdf.xacro" />
+
+    <!-- robotiq -->
+    <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
+    <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.transmission.xacro" />
+
+
+    <!-- arm -->
+    <xacro:ur3e_robot prefix="" joint_limited="true"/>
+    <xacro:robotiq_85_gripper prefix=""/>
+
+    <link name="world" />
+    
+    <joint name = "kinect_joint" type= "fixed">
+    	<parent link = "world"/>
+    	<child link = "kinect__link"/>
+    	<origin xyz="0.21 0.6 1.566" rpy="2.446 1.5707963268 0.875" />
+    </joint>
+
+    <joint name="world_joint" type="fixed">
+        <!--parent link="world" /-->
+        <parent link="world" />
+        <child link = "desk_link" />
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.5707963268" />
+    </joint>
+
+
+	<!-- <origin xyz="0.17 -0.175 0.0165" rpy="0.0 0.0 -1.5707963268" /> -->
+    <joint name="world_ur" type="fixed">
+        <parent link="desk_link" />
+        <child link = "base_link" />
+        <origin xyz="0.17 -0.175 0.0165" rpy="0.0 0.0 -1.5707963268" />
+    </joint>
+
+
+    <joint name="ur_gripper" type="fixed">
+	<parent link="ee_link"/>
+	<child link="robotiq_85_root"/>
+	<origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!--
+    <xacro:robotiq_85_gripper prefix="" parent="ee_link">
+	<origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:robotiq_85_gripper>
+    -->
+    <desk/>
+    <sensor_kinect parent="world"/>
+
+    <!-- gazebo grasp plugin -->
+    <xacro:if value="$(arg load_grasp_fix)">
+        <xacro:include filename="$(find robot_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
+	<xacro:gzplugin_grasp_fix/>
+    </xacro:if>
+
+</robot>

@@ -1,0 +1,7 @@
+<launch>
+<node pkg="p_robot_learning_demo" type="robotiq_server" name="robotiq_server">
+</node>
+
+<node pkg="p_robot_learning_demo" type="add_object" name="add_object">
+</node>
+</launch>

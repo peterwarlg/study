@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="limited" default="true"/>
+  <arg name="load_grasp_fix" default="true"/>
+  
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find robot_description)/urdf/ur_robotiq_env.xacro'" />
+
+  <!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find p_robot_description)/urdf/ur_robotiq_env.urdf'" /> -->
+
+</launch>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="big_cup.SLDPRT">
+  <link
+    name="big_cup">
+    <inertial>
+      <origin
+        xyz="5.8018E-35 -6.10564842751986E-18 0.056824"
+        rpy="0 0 0" />
+      <mass
+        value="0.1098" />
+      <inertia
+        ixx="0.00041227"
+        ixy="-2.5101E-36"
+        ixz="-7.6813E-36"
+        iyy="0.00041227"
+        iyz="1.3701315869011E-20"
+        izz="0.00031239" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://big_cup/meshes/big_cup.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+        <texture
+          filename="package://big_cup/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://big_cup/meshes/big_cup.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

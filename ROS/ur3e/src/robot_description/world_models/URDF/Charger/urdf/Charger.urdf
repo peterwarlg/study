@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Charger">
+  <link
+    name="Charger">
+    <inertial>
+      <origin
+        xyz="0.00085901 -1.40649999767159E-09 0.038027"
+        rpy="0 0 0" />
+      <mass
+        value="0.31482" />
+      <inertia
+        ixx="0.00035006"
+        ixy="6.61139999999735E-10"
+        ixz="4.3343E-06"
+        iyy="0.00045804"
+        iyz="-8.08550001590886E-12"
+        izz="0.00019822" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Charger/meshes/Charger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.43922 0.47451 0.50196 1" />
+        <texture
+          filename="package://Charger/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Charger/meshes/Charger.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

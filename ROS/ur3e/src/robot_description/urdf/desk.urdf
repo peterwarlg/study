@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="desk">
+  <link
+    name="desk_link">
+    <inertial>
+      <origin
+        xyz="0.52498 -0.37616 -0.027187"
+        rpy="0 0 0" />
+      <mass
+        value="135.6" />
+      <inertia
+        ixx="16.13"
+        ixy="-0.5689"
+        ixz="-2.1443"
+        iyy="21.981"
+        iyz="1.2292"
+        izz="23.031" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_description/meshes/desk.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_description/meshes/desk.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

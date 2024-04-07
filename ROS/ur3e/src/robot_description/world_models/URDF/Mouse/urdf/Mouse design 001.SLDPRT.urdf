@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Mouse design 001.SLDPRT">
+  <link
+    name="Mouse">
+    <inertial>
+      <origin
+        xyz="-0.098 -5.1005E-09 3.32740000312305E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.12374" />
+      <inertia
+        ixx="1.2934E-07"
+        ixy="-4.1445E-23"
+        ixz="2.1033E-22"
+        iyy="2.5309E-07"
+        iyz="-2.1077251814276E-23"
+        izz="1.2934E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mouse/meshes/Mouse.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://Mouse/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Mouse/meshes/Mouse.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

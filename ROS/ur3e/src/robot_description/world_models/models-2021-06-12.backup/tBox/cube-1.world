@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <physics type="ode">
+      <gravity>0 0 -9.81</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>20</iters>
+          <sor>1.0</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100.0</contact_max_correcting_vel>
+          <contact_surface_layer>0.0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+    </physics>
+    <light type="directional" name="light1">
+      <cast_shadows>true</cast_shadows>
+      <pose>2 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0.2 0.0 -1.0</direction>
+    </light>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- A table -->
+    <include>
+      <uri>model://table_0m8</uri>
+      <name>table</name>
+      <pose>0.4 0.5 0.01 0 0 0</pose>
+    </include>  
+
+    <!-- Red cube -->
+    <include>
+      <uri>model://red_cube</uri>
+      <name>red1</name>
+      <pose>0.4857 0.4530 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://red_cube</uri>
+      <name>red2</name>
+      <pose>0.3370 0.298 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://red_cube</uri>
+      <name>red3</name>
+      <pose>0.2953 0.6603 0.83 0 0 0</pose>
+    </include>
+
+    <!-- Yellow cube -->
+    <include>
+      <uri>model://yellow_cube</uri>
+      <name>yellow1</name>
+      <pose>0.4512 0.6427 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://yellow_cube</uri>
+      <name>yellow2</name>
+      <pose>0.3328 0.5194 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://yellow_cube</uri>
+      <name>yellow3</name>
+      <pose>0.0405 0.5090 0.83 0 0 0</pose>
+    </include>
+
+    <!-- Blue cube -->
+    <include>
+      <uri>model://blue_cube</uri>
+      <name>blue1</name>
+      <pose>0.1890 0.5105 0.83 0 0 0</pose>
+        <!--z  y   x-->
+    </include>
+    <include>
+      <uri>model://blue_cube</uri>
+      <name>blue2</name>
+      <pose>0.1245 0.7160 0.83 0 0 0</pose>
+        <!--z  y   x-->
+    </include>
+
+    <!-- Black cube -->
+    <include>
+      <uri>model://black_cube</uri>
+      <pose>0.31 0.60 0.83 0 0 0</pose>
+    </include>
+
+    <!-- tBox -->
+    <include>
+      <uri>model://tBox</uri>
+      <name>tBox1</name>
+      <pose>0.65 0.2 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tBox</uri>
+      <name>tBox2</name>
+      <pose>0.65 0.4 0.83 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tBox</uri>
+      <name>tBox3</name>
+      <pose>0.65 0.6 0.83 0 0 0</pose>
+    </include>
+  </world>
+</sdf>

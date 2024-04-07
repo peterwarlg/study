@@ -1,0 +1,4 @@
+<launch>
+<node pkg="p_robot_learning_demo" type="robotiq_server" name="robotiq_server">
+</node>
+</launch>

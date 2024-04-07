@@ -1,0 +1,43 @@
+<sdf version='1.6'>
+  <model name='xiaoyuanzhu_ed3.SLDPRT'>
+    <link name='xiaoyuanzhu_ed3'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0.025 0 -0 0</pose>
+        <mass>0.0047124</mass>
+        <inertia>
+          <ixx>1.0996e-06</ixx>
+          <ixy>1.39397e-55</ixy>
+          <ixz>-2.2766e-39</ixz>
+          <iyy>1.0996e-06</iyy>
+          <iyz>-5.29018e-23</iyz>
+          <izz>2.3562e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='xiaoyuanzhu_ed3_collision'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://xiaoyuanzhu_ed3/meshes/xiaoyuanzhu_ed3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='xiaoyuanzhu_ed3_visual'>
+        <pose frame=''>0 0 0 1.5708 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://xiaoyuanzhu_ed3/meshes/xiaoyuanzhu_ed3.STL</uri>
+          </mesh>
+        </geometry>
+	<material>
+          <script>
+            <uri>file://big_cup/textures/Teak-color.jpg</uri>
+            <name>Gazebo/Wood</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

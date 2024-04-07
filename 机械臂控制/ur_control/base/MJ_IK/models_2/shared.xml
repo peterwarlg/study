@@ -1,0 +1,135 @@
+<mujoco>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.44 0.85 0.56" rgb2="0.46 0.87 0.58" width="32"
+                 height="32"/>
+        <texture name="texture_block" file="block.png" gridsize="3 4" gridlayout=".U..LFRB.D.."/>
+        <texture name="ur5_tex" type="2d" builtin="flat" height="32" width="32" rgb1="0.45 0.45 0.45"/>
+        <texture name="gripper_tex" type="2d" builtin="flat" height="32" width="32" rgb1="0.45 0.45 0.45" rgb2="0 0 0"/>
+        <texture name="bench_tex" type="2d" builtin="flat" height="32" width="32" rgb1="0.7 0.7 0.7"/>
+<!--        <texture name="sky_tex" type="skybox" builtin="gradient" width="100" height="100" rgb1="1 1 1"-->
+<!--                 rgb2="0.3 0.3 0.8"/>-->
+                <texture name="sky_tex" type="skybox" builtin="gradient" width="100" height="100" rgb1="1 1 1"
+                 rgb2="0.3 0.3 0.8"/>
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278" rgb1="0.8 0.6 0.4"
+                 rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>
+        <texture name="floor_tex" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="100" height="100"/>
+        <texture name="wood" type="cube" file="wood2.png"/>
+        <texture name="metal" type="cube" file="metal2.png"/>
+
+
+<!--        <material name="floor_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>-->
+        <material name='floor_mat' texture="floor_tex" shininess="0.8" texrepeat="10 10" specular="0.7"
+                  reflectance="0.1"/>
+
+        <material name="table_mat" specular="0" shininess="0.5" reflectance="0.2" rgba="0.73 0.73 0.73 1"/>
+        <material name="block_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>
+        <material name="puck_mat" specular="0" shininess="0.5" reflectance="0" rgba="0.2 0.2 0.2 1"/>
+        <material name="robot0:geomMat" shininess="0.03" specular="0.4"/>
+        <material name="robot0:gripper_finger_mat" shininess="0.03" specular="0.4" reflectance="0"/>
+        <material name="robot0:gripper_mat" shininess="0.03" specular="0.4" reflectance="0"/>
+        <material name="robot0:arm_mat" shininess="0.03" specular="0.4" reflectance="0"/>
+        <material name="robot0:base_mat" shininess="0.03" specular="0.4" reflectance="0"/>
+
+        <material name="ur5_mat" texture="ur5_tex" shininess="0.1" specular="0.9" reflectance="0.0"/>
+        <material name="gripper_mat" texture="gripper_tex" shininess="0.1" specular="0.75" reflectance="0.4"/>
+        <material name='geom' texture="texgeom" texuniform="true"/>
+        <material name="bench_mat" texture="metal" shininess="0.1" specular="0.5" reflectance="0.2"/>
+        <material name="tablecube" texture="wood" rgba=".8 .8 .8 1"/>
+
+        <mesh name="robot0:gripper_link" file="gripper_link.stl"/>
+        <mesh name="robot0:base_link" file="base.stl"/>
+        <mesh name="robot0:shoulder_link" file="shoulder.stl"/>
+        <mesh name="robot0:upperarm_link" file="upperarm.stl"/>
+        <mesh name="robot0:forearm_link" file="forearm.stl"/>
+        <mesh name="robot0:wrist_1_link" file="wrist1.stl"/>
+        <mesh name="robot0:wrist_2_link" file="wrist2.stl"/>
+        <mesh name="robot0:wrist_3_link" file="wrist3.stl"/>
+        <!--Robotiq85-->
+        <mesh name="robot0:robotiq_85_base_link_coarse" file="robotiq_85_base_link_coarse.STL"/>
+        <mesh name="robot0:inner_knuckle_coarse" file="inner_knuckle_coarse.STL"/>
+        <mesh name="robot0:inner_finger_coarse" file="inner_finger_coarse.STL"/>
+        <mesh name="robot0:outer_knuckle_coarse" file="outer_knuckle_coarse.STL"/>
+        <mesh name="robot0:outer_finger_coarse" file="outer_finger_coarse.STL"/>
+    </asset>
+
+    <equality>
+        <weld body1="robot0:mocap" body2="robot0:gripper_link" solimp="0.9 0.95 0.001" solref="0.02 1"></weld>
+    </equality>
+
+    <contact>
+        <exclude body1="robot0:r_gripper_finger_link" body2="robot0:l_gripper_finger_link"/>
+        <exclude body1="robot0:base_link" body2="robot0:shoulder_link"/>
+        <exclude body1="robot0:shoulder_link" body2="robot0:upperarm_link"/>
+        <exclude body1="robot0:upperarm_link" body2="robot0:forearm_link"/>
+        <exclude body1="robot0:forearm_link" body2="robot0:wrist_1_link"/>
+        <exclude body1="robot0:wrist_1_link" body2="robot0:wrist_2_link"/>
+        <exclude body1="robot0:wrist_2_link" body2="robot0:wrist_3_link"/>
+        <exclude body1="robot0:ee_link" body2="robot0:wrist_3_link"/>
+    </contact>
+
+    <default>
+        <default class="robot0:ur3e">
+            <geom margin="0.001" material="robot0:geomMat" rgba="1 1 1 1" solimp="0.99 0.99 0.01" solref="0.01 1"
+                  type="mesh" user="0"/>
+            <joint armature="1" damping="50" frictionloss="0" stiffness="0"/>
+
+            <default class="robot0:ur3eGripper">
+                <geom condim="4" margin="0.001" type="box" user="0" rgba="0.356 0.361 0.376 1.0"/>
+                <joint armature="25" damping="1000" limited="true" solimplimit="0.99 0.999 0.01" solreflimit="0.01 1"
+                       type="slide"/>
+            </default>
+<!--Iron Man-->
+<!--            <default class="robot0:base_color">-->
+<!--                <geom rgba="0.4156862745 0.0470588235 0.0431372549 1.0"></geom>-->
+<!--            </default>-->
+<!--            <default class="robot0:link1_color">-->
+<!--                <geom rgba="0.72549019 0.49019607 0.062745098 1.0"></geom>-->
+<!--            </default>-->
+<!--            <default class="robot0:link2_color">-->
+<!--                <geom rgba="0.4156862745 0.0470588235 0.0431372549 1.0"></geom>-->
+<!--            </default>-->
+<!--            <default class="robot0:link3_color">-->
+<!--                <geom rgba="0.4156862745 0.0470588235 0.0431372549 1.0"></geom>-->
+<!--            </default>-->
+<!--            <default class="robot0:link4_color">-->
+<!--                <geom rgba="0.4156862745 0.0470588235 0.0431372549 1.0"></geom>-->
+<!--            </default>-->
+<!--            <default class="robot0:link5_color">-->
+<!--                <geom rgba="0.72549019 0.49019607 0.062745098 1.0"></geom>-->
+<!--            </default>-->
+<!--            <default class="robot0:link6_color">-->
+<!--                <geom rgba="0.4156862745 0.0470588235 0.0431372549 1.0"></geom>-->
+<!--            </default>-->
+
+<!--Blue and Grey-->
+            <default class="robot0:base_color">
+                <geom rgba="0.356 0.361 0.376 1.0"></geom>
+            </default>
+            <default class="robot0:link1_color">
+                <geom rgba="0.086 0.506 0.767 1.0"></geom>
+            </default>
+            <default class="robot0:link2_color">
+                <geom rgba="0.356 0.361 0.376 1.0"></geom>
+            </default>
+            <default class="robot0:link3_color">
+                <geom rgba="0.356 0.361 0.376 1.0"></geom>
+            </default>
+            <default class="robot0:link4_color">
+                <geom rgba="0.086 0.506 0.767 1.0"></geom>
+            </default>
+            <default class="robot0:link5_color">
+                <geom rgba="0.086 0.506 0.767 1.0"></geom>
+            </default>
+            <default class="robot0:link6_color">
+                <geom rgba="0.086 0.506 0.767 1.0"></geom>
+            </default>
+
+            <default class="robot0:grey">
+                <geom rgba="0.356 0.361 0.376 1.0"></geom>
+            </default>
+            <default class="robot0:blue">
+                <geom rgba="0.086 0.506 0.767 1.0"></geom>
+            </default>
+        </default>
+    </default>
+</mujoco>

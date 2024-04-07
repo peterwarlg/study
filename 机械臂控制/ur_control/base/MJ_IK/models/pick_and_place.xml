@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco>
+    <compiler angle="radian" coordinate="local" meshdir="meshs_ur3e" texturedir="textures"></compiler>
+    <option timestep="0.002">
+        <flag warmstart="enable"></flag>
+    </option>
+
+    <include file="shared.xml"></include>
+
+    <worldbody>
+        <geom name="floor0" pos="0.0 0.0 0.0" size="2 2 1" type="plane" condim="3" material="floor_mat"></geom>
+        <body name="floor0" pos="0.0 0.0 0.0">
+            <site name="target0" pos="0 0 0.5" size="0.02 0.02 0.02" rgba="1 0 0 1" type="sphere"></site>
+        </body>
+
+        <include file="robot_1.xml"></include>
+
+        <!--被抓取的物体-->
+        <body name="object0" pos="0.6 0. 1.025">
+            <joint name="object0:joint" type="free" damping="0.99"></joint>
+            <geom size="0.025 0.025 0.025" rgba="1 1 0 1" type="box" condim="3" name="object0" material="block_mat" mass="1" friction="1 1 1"></geom>
+            <site name="object0" pos="0 0 0" size="0.02 0.02 0.02" rgba="0 0 0 0" type="sphere"></site>
+        </body>
+
+        <!--桌子-->
+        <body name="box_link" pos="0 0 0.5">
+            <geom size="0.5 0.6 .5" pos="0.4 0 0 " type="box" material="table_mat"/>
+            <inertial pos="0 0 0" mass="1000" diaginertia="0 0 0"/>
+        </body>
+
+        <light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false"
+               pos="0 0 4" dir="0 0 -1" name="light0"></light>
+    </worldbody>
+
+    <actuator>
+        <position ctrllimited="true" ctrlrange="-0.4 0.8" joint="robot0:base_to_lik" kp="2000"
+                  name="robot0:l_gripper_finger_joint" user="1"></position>
+        <position ctrllimited="true" ctrlrange="-0.4 0.8" joint="robot0:base_to_rik" kp="2000"
+                  name="robot0:r_gripper_finger_joint" user="1"></position>
+    </actuator>
+</mujoco>

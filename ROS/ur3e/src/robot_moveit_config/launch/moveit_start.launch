@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- Launch Gazebo  -->
+  <include file="$(find robot_moveit_config)/launch/ur3_e_moveit_planning_execution.launch" />  
+  <!-- ros_control dual arm launch file -->
+  <include file="$(find robot_moveit_config)/launch/moveit_rviz.launch.launch" />
+
+</launch>
